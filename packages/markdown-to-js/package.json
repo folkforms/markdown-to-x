@@ -1,0 +1,16 @@
+{
+  "name": "markdown-to-js",
+  "version": "0.0.1",
+  "description": "Converts markdown data into a simple JS object.",
+  "main": "index.js",
+  "author": "folkforms",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@folkforms/file-io": "^0.1.3",
+    "glob": "^7.1.7",
+    "jest": "^27.0.3"
+  }
+}
