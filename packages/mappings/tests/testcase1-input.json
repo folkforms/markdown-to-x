@@ -1,0 +1,12 @@
+{
+    "title": "Some title",
+    "description": [
+         "description line 1",
+         "description line 2"
+    ],
+    "steps": [
+        "Step one",
+        "Step two",
+        "Step three (someUsername/somePassword)"
+    ]
+}
