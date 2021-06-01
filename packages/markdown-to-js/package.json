@@ -2,7 +2,7 @@
   "name": "markdown-to-js",
   "version": "0.0.1",
   "description": "Converts markdown data into a simple JS object.",
-  "main": "index.js",
+  "main": "markdown-to-js.js",
   "author": "folkforms",
   "license": "MIT",
   "scripts": {

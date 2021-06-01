@@ -29,6 +29,7 @@
   "private": true,
   "workspaces": [
     "packages/markdown-to-js",
-    "packages/mappings"
+    "packages/mappings",
+    "packages/templates"
   ]
 }
