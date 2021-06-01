@@ -25,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/folkforms/markdown-to-x/issues"
   },
-  "homepage": "https://github.com/folkforms/markdown-to-x#readme"
+  "homepage": "https://github.com/folkforms/markdown-to-x#readme",
+  "private": true,
+  "workspaces": [
+    "packages/markdown-to-js",
+    "packages/mappings"
+  ]
 }
