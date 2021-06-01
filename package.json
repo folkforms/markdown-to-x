@@ -1,0 +1,29 @@
+{
+  "name": "markdown-to-x",
+  "version": "0.0.0",
+  "description": "Convert markdown documents to other formats, e.g. automated tests.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo No tests configured..."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/folkforms/markdown-to-x.git"
+  },
+  "keywords": [
+    "markdown",
+    "convert",
+    "automated",
+    "test",
+    "tests"
+  ],
+  "author": "folkforms",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/folkforms/markdown-to-x/issues"
+  },
+  "homepage": "https://github.com/folkforms/markdown-to-x#readme"
+}
