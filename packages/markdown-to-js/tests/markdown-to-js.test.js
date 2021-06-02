@@ -15,7 +15,7 @@ for(let i = 0; i < inputs.length; i++) {
     const expected = io.readJson(outputs[i]);
 
     // Act
-    const actual = markdownToJs.execute(structure, input);
+    const actual = markdownToJs.execute(structure, input, { cleanLists: true });
 
     // Assert
     expect(actual).toEqual(expected);

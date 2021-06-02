@@ -1,6 +1,6 @@
 // const fromMarkdown = require('mdast-util-from-markdown');
 
-const execute = (structure, input) => {
+const execute = (structure, input, options) => {
   const output = {};
   const headings = [];
   for(let i = 0; i < structure.length; i++) {
@@ -20,6 +20,9 @@ const execute = (structure, input) => {
             const previousHeading = structure[j];
             // Find matching heading in input doc
             const body = getBody(input, previousHeading);
+            if(options.cleanLists) {
+              cleanLists(body);
+            }
             output[param] = body;
             break;
           }
@@ -99,6 +102,16 @@ const getBody = (input, heading) => {
 
 const chop = string => {
   return string.substring(0, string.length - 1);
+}
+
+const cleanLists = array => {
+  for(let i = 0; i < array.length; i++) {
+    if(array[i].startsWith("- ")) {
+      array[i] = array[i].substring(2);
+    } else if(array[i].match(/\d+\.\s.*?/)) {
+      array[i] = array[i].substring(array[i].indexOf(". ") + 2);
+    }
+  }
 }
 
 module.exports = { execute };
