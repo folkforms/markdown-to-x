@@ -1,11 +1,11 @@
 {
   "title": "Title of Test Case 1",
   "description": [
-      "This is a description of test case one.",
+      "This is the description for test case one.",
       "",
       "Some more words."
   ],
-  "steps:": [
+  "steps": [
       "1. Step one (test case 1)",
       "2. Step two (test case 1)",
       "3. Step three (test case 1)"

@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a description for test case one.
+This is the description for test case one.
 
 Some more words.
 

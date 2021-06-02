@@ -3,9 +3,9 @@
   "description": [
       "This is a description of test case two."
   ],
-  "steps:": [
-      "1. Step one (test case 2)",
-      "2. Step two (test case 2)",
-      "3. Step three (test case 2)"
+  "steps": [
+      "- Step one (test case 2)",
+      "- Step two (test case 2)",
+      "- Step three (test case 2)"
   ]
 }
