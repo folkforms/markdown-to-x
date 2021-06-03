@@ -7,13 +7,13 @@
   "steps": [
     "Step one",
     "Step two",
-    "Step three"
+    "Step three (actualUsername/actualPassword)"
   ],
   "codeSteps": [
     "Code step one",
     "Code step two A",
     "Code step two B",
-    "Code step three A (someUsername)",
-    "Code step three B (somePassword)"
+    "Code step three A (actualUsername)",
+    "Code step three B (actualPassword)"
   ]
 }

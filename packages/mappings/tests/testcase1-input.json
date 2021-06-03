@@ -7,6 +7,6 @@
     "steps": [
         "Step one",
         "Step two",
-        "Step three (someUsername/somePassword)"
+        "Step three (actualUsername/actualPassword)"
     ]
 }

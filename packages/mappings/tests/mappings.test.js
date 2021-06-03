@@ -11,7 +11,7 @@ const mappingsData = fileio.readJson("tests/mappings.json");
 for(let i = 0; i < inputs.length; i++) {
   test(inputs[i], () => {
     // Arrange
-    const input = fileio.readLines(inputs[i]);
+    const input = fileio.readJson(inputs[i]);
     const expected = fileio.readJson(outputs[i]);
 
     // Act

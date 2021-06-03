@@ -14,6 +14,10 @@
             ]
         },
         {
+            "input": "Other step {foo}",
+            "output": "Foo: {foo}"
+        },
+        {
             "input": "Step three ({username}/{password})",
             "output": [
                 "Code step three A ({username})",
