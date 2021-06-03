@@ -31,5 +31,8 @@
     "packages/markdown-to-js",
     "packages/mappings",
     "packages/templates"
-  ]
+  ],
+  "dependencies": {
+    "@folkforms/file-io": "^0.1.4"
+  }
 }

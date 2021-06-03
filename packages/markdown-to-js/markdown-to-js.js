@@ -1,5 +1,3 @@
-// const fromMarkdown = require('mdast-util-from-markdown');
-
 const execute = (structure, input, options) => {
   const output = {};
   const headings = [];
@@ -30,7 +28,6 @@ const execute = (structure, input, options) => {
       }
     }
   };
-
   return output;
 }
 
