@@ -1,14 +1,9 @@
-title: Some title
+// title: Some title
 
-description
-
-description line 1
-description line 2
-
-codeSteps
-
-Code step one
-Code step two A
-Code step two B
-Code step three A (someUsername)
-Code step three B (somePassword)
+test(('description line 1') => {
+  Code step one
+  Code step two A
+  Code step two B
+  Code step three A (someUsername)
+  Code step three B (somePassword)
+});
