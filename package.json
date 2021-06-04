@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo No tests configured..."
+    "example": "node index.js -- --input=example/inputs/*.md --structure=example/structure.md --mappings=example/mappings.json --template=example/template.txt --output=example/outputs"
   },
   "repository": {
     "type": "git",

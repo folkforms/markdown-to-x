@@ -1,4 +1,4 @@
-const execute = (structure, input, options) => {
+const execute = (structure, input, options = { cleanLists: true }) => {
   const output = {};
   const headings = [];
   for(let i = 0; i < structure.length; i++) {

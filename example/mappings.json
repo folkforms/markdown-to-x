@@ -1,0 +1,28 @@
+{
+    "source": "steps",
+    "destination": "codeSteps",
+    "mappings": [
+        {
+            "input": "Step one",
+            "output": "Code step one"
+        },
+        {
+            "input": "Step two",
+            "output": [
+                "Code step two A",
+                "Code step two B"
+            ]
+        },
+        {
+            "input": "Other step {foo}",
+            "output": "Foo: {foo}"
+        },
+        {
+            "input": "Step three ({username}/{password})",
+            "output": [
+                "Code step three A ({username})",
+                "Code step three B ({password})"
+            ]
+        }
+    ]
+}

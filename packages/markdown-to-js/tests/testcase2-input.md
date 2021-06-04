@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a description of test case two.
+This is the description for test case two.
 
 ## Steps
 

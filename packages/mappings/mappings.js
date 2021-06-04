@@ -36,7 +36,6 @@ const map = (item, mappings) => {
         // Do nothing. This 'else' branch will be hit when we have a {parameter} string that does
         // not match. We just keep going the same as any non-{parameter} string that doesn't match.
       }
-
     } else {
       // Match non-{parameter} strings
       if(m.input === item) {
@@ -44,7 +43,8 @@ const map = (item, mappings) => {
       }
     }
   }
-  return null;
+  // FIXME Maybe suggest an option using levenshtein distance?
+  throw new Error(`No mapping defined for input '${item}'.\nKnown mappings are: ${JSON.stringify(mappings.mappings)}`);
 }
 
 /**
