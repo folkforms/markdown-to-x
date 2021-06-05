@@ -1,0 +1,15 @@
+{
+  "title": "Some title",
+  "description": [
+    "description line 1",
+    "description line 2"
+  ],
+  "steps": [
+    "Log in as carl/carlspassword"
+  ],
+  "codeSteps": [
+    "utils.typeText('carl', '.login-field');",
+    "utils.typeText('carlspassword', '.password-field');",
+    "utils.clickButton('Log in');"
+  ]
+}

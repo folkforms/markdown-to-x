@@ -23,7 +23,8 @@ const map = (item, mappings) => {
       const data = convertParamsToRegex(m.input);
       const found = item.match(data.regex);
       if(found) {
-        const output = typeof m.output === "string" ? [ m.output ] : m.output;
+        const outputAsArray = typeof m.output === "string" ? [ m.output ] : m.output;
+        const output = [ ...outputAsArray ]; // Clone the array so that changes do not affect the original data
         for(let j = 0; j < output.length; j++) {
           for(let k = 0; k < data.params.length; k++) {
             if(output[j].indexOf(`{${data.params[k]}}`) != -1) {
@@ -74,7 +75,7 @@ const convertParamsToRegex = line => {
   regex = replaceAll(regex, "%LEFT_BRACKET%", "{");
   regex = replaceAll(regex, "%RIGHT_BRACKET%", "}");
   params.forEach(param => {
-    regex = regex.replace(`{${param}}`, "(.*?)");
+    regex = regex.replace(`{${param}}`, "(.+)");
   })
 
   return { params, regex };

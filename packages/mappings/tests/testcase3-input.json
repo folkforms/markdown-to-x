@@ -5,8 +5,6 @@
          "description line 2"
     ],
     "steps": [
-        "Step one",
-        "Step two",
-        "Step three (bob/bobspassword)"
+        "Log in as carl/carlspassword"
     ]
 }

@@ -18,6 +18,14 @@
             "output": "Foo: {foo}"
         },
         {
+            "input": "Log in as {username}/{password}",
+            "output": [
+                "utils.typeText('{username}', '.login-field');",
+                "utils.typeText('{password}', '.password-field');",
+                "utils.clickButton('Log in');"
+            ]
+        },
+        {
             "input": "Step three ({username}/{password})",
             "output": [
                 "Code step three A ({username})",

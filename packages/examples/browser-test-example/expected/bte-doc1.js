@@ -12,7 +12,7 @@ test('This is the description for test case one. (file: FIXME-Filename-1-goes-he
   utils.navigateTo('https://localhost:3000');
   utils.clickButton('Log in');
   utils.waitForPage('LoginPage');
-  utils.typeText('bob', '.login-field');
+  utils.typeText('bob', '.username-field');
   utils.typeText('bobspassword', '.password-field');
   utils.clickButton('Log in');
   utils.waitForPage('UserHomePage');

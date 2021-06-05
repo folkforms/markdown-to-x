@@ -20,7 +20,7 @@
         {
             "input": "Log in as {username}/{password}",
             "output": [
-                "utils.typeText('{username}', '.login-field');",
+                "utils.typeText('{username}', '.username-field');",
                 "utils.typeText('{password}', '.password-field');",
                 "utils.clickButton('Log in');"
             ]

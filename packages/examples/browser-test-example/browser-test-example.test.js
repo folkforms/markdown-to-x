@@ -14,9 +14,9 @@ test('browser test example 1', () => {
   const expected2 = fileio.readLines("browser-test-example/expected/bte-doc2.js");
 
   // Act
-  main(inputFiles, structure, mappingsData, templateData, templateFilename, );
+  main(inputFiles, structure, mappingsData, templateData, templateFilename, outputFolder);
   const actual1 = fileio.readLines(`${outputFolder}/bte-doc1.js`);
-  const actual1 = fileio.readLines(`${outputFolder}/bte-doc2.js`);
+  const actual2 = fileio.readLines(`${outputFolder}/bte-doc2.js`);
 
   // Assert
   expect(actual1).toEqual(expected1);
