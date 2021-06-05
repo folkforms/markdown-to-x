@@ -7,7 +7,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "example": "node index.js -- --input=packages/examples/browser-test-example/inputs/bte-doc*.md --structure=packages/examples/browser-test-example/inputs/bte-structure.md --mappings=packages/examples/browser-test-example/inputs/bte-mappings.json --template=packages/examples/browser-test-example/inputs/bte-template.js --output=packages/examples/browser-test-example/outputs"
+    "example": "node index.js -- --input=packages/examples/browser-test-example/inputs/bte-doc*.md --structure=packages/examples/browser-test-example/inputs/bte-structure.md --mappings=packages/examples/browser-test-example/inputs/bte-mappings.json --template=packages/examples/browser-test-example/inputs/bte-template.js --output=packages/examples/browser-test-example/outputs",
+    "test": "lerna run test --ignore integration"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
   "dependencies": {
     "@folkforms/file-io": "^0.2.0",
     "glob": "^7.1.7",
-    "jest": "^27.0.4"
+    "jest": "^27.0.4",
+    "lerna": "^4.0.0"
   }
 }
