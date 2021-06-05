@@ -1,0 +1,14 @@
+{
+  "name": "integration",
+  "version": "0.0.1",
+  "description": "A script to integrate the whole system and arrange command-line arguments.",
+  "main": "integration.js",
+  "author": "folkforms",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "cross-env": "5.0.5"
+  }
+}

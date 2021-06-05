@@ -1,9 +1,7 @@
 const getArgs = require("./args");
 const glob = require("glob");
-const io = require("@folkforms/file-io");
-const markdownToJs = require("./packages/markdown-to-js/markdown-to-js");
-const mappings = require("./packages/mappings/mappings");
-const templates = require("./packages/templates/templates");
+const fileio = require("@folkforms/file-io");
+const { main } = require("./packages/integration/integration");
 
 // Sort out args
 //   -i/--input     => input glob
@@ -23,18 +21,8 @@ const args = getArgs();
 verifyArgs(args);
 
 const inputFiles = glob.sync(args.input);
-const structure = io.readLines(args.structure);
-const mappingsData = io.readJson(args.mappings);
-const templateData = io.readLines(args.template);
-inputFiles.forEach(file => {
-  const input = io.readLines(file);
+const structure = fileio.readLines(args.structure);
+const mappingsData = fileio.readJson(args.mappings);
+const templateData = fileio.readLines(args.template);
 
-  const obj = markdownToJs.execute(structure, input);
-  const mapped = mappings.execute(obj, mappingsData);
-  const templated = templates.execute(mapped, templateData);
-
-  let outFilename = file.substring(file.lastIndexOf("/") + 1);
-  outFilename = outFilename.substring(0, outFilename.lastIndexOf("."));
-  let outFileExtension = args.template.substring(args.template.lastIndexOf("."));
-  io.writeLines(`${args.output}/${outFilename}${outFileExtension}`, templated);
-});
+main(inputFiles, structure, mappingsData, templateData, args.template, args.output);

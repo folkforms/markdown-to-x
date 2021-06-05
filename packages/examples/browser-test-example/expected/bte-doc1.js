@@ -8,7 +8,7 @@ This is the description for test case one.
 Some more words.
 */
 
-test('This is the description for test case one. (file: @filename@)', () => {
+test('This is the description for test case one. (file: FIXME-Filename-1-goes-here)', () => {
   utils.navigateTo('https://localhost:3000');
   utils.clickButton('Log in');
   utils.waitForPage('LoginPage');

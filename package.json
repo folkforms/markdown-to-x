@@ -28,9 +28,7 @@
   "homepage": "https://github.com/folkforms/markdown-to-x#readme",
   "private": true,
   "workspaces": [
-    "packages/markdown-to-js",
-    "packages/mappings",
-    "packages/templates"
+    "packages/*"
   ],
   "dependencies": {
     "@folkforms/file-io": "^0.2.0",
