@@ -1,0 +1,14 @@
+{
+  "name": "example",
+  "version": "0.0.1",
+  "description": "Example tests of the entire system.",
+  "main": "index.js",
+  "author": "folkforms",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "cross-env": "5.0.5"
+  }
+}

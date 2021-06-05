@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "example": "node index.js -- --input=example/inputs/testcase*.md --structure=example/structure.md --mappings=example/mappings.json --template=example/template.js --output=example/outputs"
+    "example": "node index.js -- --input=packages/examples/browser-test-example/inputs/bte-doc*.md --structure=packages/examples/browser-test-example/inputs/bte-structure.md --mappings=packages/examples/browser-test-example/inputs/bte-mappings.json --template=packages/examples/browser-test-example/inputs/bte-template.js --output=packages/examples/browser-test-example/outputs"
   },
   "repository": {
     "type": "git",
