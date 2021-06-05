@@ -3,26 +3,31 @@
     "destination": "codeSteps",
     "mappings": [
         {
-            "input": "Step one",
-            "output": "Code step one"
+            "input": "Go to homepage",
+            "output": "utils.navigateTo('https://localhost:3000');"
         },
         {
-            "input": "Step two",
+            "input": "Click the Log in button",
             "output": [
-                "Code step two A",
-                "Code step two B"
+                "utils.clickButton('Log in');",
+                "utils.waitForPage('LoginPage');"
             ]
         },
         {
-            "input": "Other step {foo}",
-            "output": "Foo: {foo}"
+            "input": "Unused step {foo}",
+            "output": "utils.foo('{foo}');"
         },
         {
-            "input": "Step three ({username}/{password})",
+            "input": "Log in as {username}/{password}",
             "output": [
-                "Code step three A ({username})",
-                "Code step three B ({password})"
+                "utils.typeText('{username}', '.login-field');",
+                "utils.typeText('{password}', '.password-field');",
+                "utils.clickButton('Log in');"
             ]
+        },
+        {
+            "input": "Verify that the user home page loads",
+            "output": "utils.waitForPage('UserHomePage');"
         }
     ]
 }

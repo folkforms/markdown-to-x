@@ -1,5 +1,0 @@
-// title: %title%
-
-test(('%description[line:0]%') => {
-%codeSteps[indent:2]%
-});

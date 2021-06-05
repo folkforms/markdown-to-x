@@ -8,6 +8,8 @@ Some more words.
 
 ## Steps
 
-1. Step one
-2. Step two
-3. Step three (bob/bobspassword)
+1. Go to homepage
+2. Click the Log in button
+3. Log in as bob/bobspassword
+4. Verify that the user home page loads
+

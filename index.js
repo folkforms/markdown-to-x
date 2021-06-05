@@ -12,10 +12,6 @@ const templates = require("./packages/templates/templates");
 //   -t/--template  => template file
 //   -o/--output    => output folder
 
-// Call markdown-to-js.js, mappings.js, templates.js with appropriate arguments
-
-// FIXME How to ship the tool so that people can run it e.g. how does jest ship? Is there an executable?
-
 const verifyArgs = args => {
   console.log("FIXME Need to verify args are present and correct...");
   // FIXME Also args.output should trim any ending "/"
@@ -37,7 +33,8 @@ inputFiles.forEach(file => {
   const mapped = mappings.execute(obj, mappingsData);
   const templated = templates.execute(mapped, templateData);
 
-  let outfile = file.substring(file.lastIndexOf("/") + 1);
-  outfile = outfile.substring(0, outfile.lastIndexOf(".")) + ".js";
-  io.writeLines(`${args.output}/${outfile}`, templated);
+  let outFilename = file.substring(file.lastIndexOf("/") + 1);
+  outFilename = outFilename.substring(0, outFilename.lastIndexOf("."));
+  let outFileExtension = args.template.substring(args.template.lastIndexOf("."));
+  io.writeLines(`${args.output}/${outFilename}${outFileExtension}`, templated);
 });
