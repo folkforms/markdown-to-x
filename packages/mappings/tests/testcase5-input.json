@@ -1,0 +1,12 @@
+{
+    "title": "testing case insensitive strings",
+    "description": [
+         "description line 1",
+         "description line 2"
+    ],
+    "steps": [
+        "step one",
+        "step two",
+        "step three (Bob/BobsPassword)"
+    ]
+}

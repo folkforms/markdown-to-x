@@ -42,7 +42,7 @@ const map = (item, mappings) => {
         }
       } else {
         // Match non-{parameter} strings
-        if(input === item) {
+        if(input.toUpperCase() === item.toUpperCase()) {
           return m.output;
         }
       }
@@ -81,6 +81,7 @@ const convertParamsToRegex = line => {
   params.forEach(param => {
     regex = regex.replace(`{${param}}`, "(.+)");
   })
+  regex = new RegExp(regex, 'i');
 
   return { params, regex };
 }
