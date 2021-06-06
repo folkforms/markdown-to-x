@@ -22,7 +22,7 @@ verifyArgs(args);
 
 const inputFiles = glob.sync(args.input);
 const structure = fileio.readLines(args.structure);
-const mappingsData = fileio.readJson(args.mappings);
+const mappingsData = args.mappings ? fileio.readJson(args.mappings) : null;
 const templateData = fileio.readLines(args.template);
 
 main(inputFiles, structure, mappingsData, templateData, args.template, args.output);
