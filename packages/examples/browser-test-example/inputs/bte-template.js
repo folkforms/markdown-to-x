@@ -6,6 +6,6 @@ import utils from AutomatedTestFramework;
 %description%
 */
 
-test('%description[line:0]% (file: @filename@)', () => {
+test('%description[line:0]% (file: %@filename%)', () => {
 %codeSteps[indent:2]%
 });

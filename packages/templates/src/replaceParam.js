@@ -1,4 +1,6 @@
-const replaceParam = (line, paramData, data) => {
+const replaceParam = (line, paramData, data, additionalData) => {
+  const combinedData = { ...data, ...additionalData };
+
   // Define search param
   const searchParam = `%${paramData.param}${paramData.qualifier || ""}%`;
 
@@ -16,16 +18,16 @@ const replaceParam = (line, paramData, data) => {
     const qualifier = paramData.qualifier.substring(1, paramData.qualifier.length - 1); // Remove brackets
     if(found = qualifier.match("line:(\\d)")) {
       let line = found[1];
-      replacement = ensureArray(data[paramData.param])[line];
+      replacement = ensureArray(combinedData[paramData.param])[line];
     } else if(found = qualifier.match("indent:(\\d)")) {
       let indent = found[1];
-      replacement = ensureArray(data[paramData.param]);
+      replacement = ensureArray(combinedData[paramData.param]);
       replacement = applyIndentation(replacement, indent);
     } else {
       throw new Error(`Unknown qualifier: '${paramData.qualifier}' => '${qualifier}'`);
     }
   } else {
-    replacement = ensureArray(data[paramData.param]);
+    replacement = ensureArray(combinedData[paramData.param]);
   }
   
   // Replace the parameter

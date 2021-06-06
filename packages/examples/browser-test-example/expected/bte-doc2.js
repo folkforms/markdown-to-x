@@ -9,7 +9,7 @@ It should only contain the login code (type username, type password, click submi
 that user home page loads).
 */
 
-test('This is the description for browser test case two. (file: FIXME-Filename-2-goes-here)', () => {
+test('This is the description for browser test case two. (file: browser-test-example/inputs/bte-doc2.md)', () => {
   utils.typeText('carl', '.username-field');
   utils.typeText('carlspassword', '.password-field');
   utils.clickButton('Log in');
