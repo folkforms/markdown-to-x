@@ -1,3 +1,5 @@
+const levenshtein = require('js-levenshtein');
+
 /**
  * Maps...
  *
@@ -48,8 +50,12 @@ const map = (item, mappings) => {
       }
     }
   }
-  // FIXME Maybe suggest an option using levenshtein distance?
-  throw new Error(`No mapping defined for input '${item}'.\nKnown mappings are: ${JSON.stringify(mappings.mappings)}`);
+
+  // Throw an error with suggested option if nothing found
+  const suggestions = findSuggestion(item, mappings.mappings);
+  throw new Error(`ERROR: No mapping defined for input "${item}". `
+      + `The most similar mapping${suggestions.length < 2 ? " is" : "s are"}: "${suggestions.join('", "')}".`
+  );
 }
 
 /**
@@ -95,6 +101,22 @@ const replaceAll = (line, str1, str2) => {
 
 const escapeRegex = line => {
   return line.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
+
+const findSuggestion = (item, mappings) => {
+  let minDistance = null;
+  let suggestedItems = [];
+  for(let i = 0; i < mappings.length; i++) {
+    const m = [ mappings[i].input ].flat();
+    for(let j = 0; j < m.length; j++) {
+      let distance = levenshtein(item, m[j]);
+      if(!minDistance || distance <= minDistance) {
+        minDistance = distance;
+        suggestedItems.push(m[j]);
+      }
+    }
+  }
+  return suggestedItems;
 }
 
 module.exports = { execute };

@@ -1,0 +1,10 @@
+{
+    "title": "Testing a missing mapping suggests an alternative",
+    "description": [
+         "description line 1",
+         "description line 2"
+    ],
+    "steps": [
+        "Step ywo"
+    ]
+}
