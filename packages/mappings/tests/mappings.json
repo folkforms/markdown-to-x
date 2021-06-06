@@ -31,6 +31,25 @@
                 "Code step three A ({username})",
                 "Code step three B ({password})"
             ]
+        },
+        {
+            "input": [
+                "Multiple inputs option 1a {foo} something",
+                "Multiple inputs option 1b {foo} something"
+            ],
+            "output": [
+                "Sentence A brought to you by multiple inputs, foo={foo}",
+                "Sentence B brought to you by multiple inputs, foo={foo}"
+            ]
+        },
+        {
+            "input": [
+                "Multiple inputs option 2a",
+                "Multiple inputs option 2b"
+            ],
+            "output": [
+                "This other sentence brought to you by multiple inputs"
+            ]
         }
     ]
 }

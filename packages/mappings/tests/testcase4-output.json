@@ -1,0 +1,19 @@
+{
+  "title": "Some title",
+  "description": [
+    "description line 1",
+    "description line 2"
+  ],
+  "steps": [
+    "Multiple inputs option 1a blahblah something",
+    "Multiple inputs option 1b duckduck something",
+    "Multiple inputs option 2b"
+  ],
+  "codeSteps": [
+    "Sentence A brought to you by multiple inputs, foo=blahblah",
+    "Sentence B brought to you by multiple inputs, foo=blahblah",
+    "Sentence A brought to you by multiple inputs, foo=duckduck",
+    "Sentence B brought to you by multiple inputs, foo=duckduck",
+    "This other sentence brought to you by multiple inputs"
+  ]
+}

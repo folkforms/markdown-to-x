@@ -1,0 +1,12 @@
+{
+    "title": "Some title",
+    "description": [
+         "description line 1",
+         "description line 2"
+    ],
+    "steps": [
+        "Multiple inputs option 1a blahblah something",
+        "Multiple inputs option 1b duckduck something",
+        "Multiple inputs option 2b"
+    ]
+}

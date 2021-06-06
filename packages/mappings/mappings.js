@@ -18,29 +18,33 @@ const execute = (input, mappings) => {
 const map = (item, mappings) => {
   for(let i = 0; i < mappings.mappings.length; i++) {
     const m = mappings.mappings[i];
-    // Match {parameter} strings
-    if(m.input.indexOf("{") != -1) {
-      const data = convertParamsToRegex(m.input);
-      const found = item.match(data.regex);
-      if(found) {
-        const outputAsArray = typeof m.output === "string" ? [ m.output ] : m.output;
-        const output = [ ...outputAsArray ]; // Clone the array so that changes do not affect the original data
-        for(let j = 0; j < output.length; j++) {
-          for(let k = 0; k < data.params.length; k++) {
-            if(output[j].indexOf(`{${data.params[k]}}`) != -1) {
-              output[j] = output[j].replace(`{${data.params[k]}}`, found[k + 1]);
+    const inputs = [ m.input ].flat();
+    for(let a = 0; a < inputs.length; a++) {
+      const input = inputs[a];
+      // Match {parameter} strings
+      if(input.indexOf("{") != -1) {
+        const data = convertParamsToRegex(input);
+        const found = item.match(data.regex);
+        if(found) {
+          const outputAsArray = typeof m.output === "string" ? [ m.output ] : m.output;
+          const output = [ ...outputAsArray ]; // Clone the array so that changes do not affect the original data
+          for(let j = 0; j < output.length; j++) {
+            for(let k = 0; k < data.params.length; k++) {
+              if(output[j].indexOf(`{${data.params[k]}}`) != -1) {
+                output[j] = output[j].replace(`{${data.params[k]}}`, found[k + 1]);
+              }
             }
           }
+          return output;
+        } else {
+          // Do nothing. This 'else' branch will be hit when we have a {parameter} string that does
+          // not match. We just keep going the same as any non-{parameter} string that doesn't match.
         }
-        return output;
       } else {
-        // Do nothing. This 'else' branch will be hit when we have a {parameter} string that does
-        // not match. We just keep going the same as any non-{parameter} string that doesn't match.
-      }
-    } else {
-      // Match non-{parameter} strings
-      if(m.input === item) {
-        return m.output;
+        // Match non-{parameter} strings
+        if(input === item) {
+          return m.output;
+        }
       }
     }
   }
