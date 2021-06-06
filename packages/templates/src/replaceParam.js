@@ -12,24 +12,29 @@ const replaceParam = (line, paramData, data, additionalData) => {
   }
 
   // Create replacement data
-  let replacement;
+  let replacement = ensureArray(combinedData[paramData.param]);
   if(paramData.qualifier) {
     let found;
     const qualifier = paramData.qualifier.substring(1, paramData.qualifier.length - 1); // Remove brackets
-    if(found = qualifier.match("line:(\\d)")) {
-      let line = found[1];
-      replacement = ensureArray(combinedData[paramData.param])[line];
-    } else if(found = qualifier.match("indent:(\\d)")) {
-      let indent = found[1];
-      replacement = ensureArray(combinedData[paramData.param]);
-      replacement = applyIndentation(replacement, indent);
-    } else {
-      throw new Error(`Unknown qualifier: '${paramData.qualifier}' => '${qualifier}'`);
-    }
-  } else {
-    replacement = ensureArray(combinedData[paramData.param]);
+    const tokens = qualifier.split(",");
+    tokens.forEach(q => {
+      let ok = false;
+      if(found = q.match("line:(\\d)")) {
+        let line = found[1];
+        replacement = replacement[line];
+        ok = true;
+      }
+      if(found = q.match("indent:(\\d)")) {
+        let indent = found[1];
+        replacement = applyIndentation(replacement, indent);
+        ok = true;
+      }
+      if(!ok) {
+        throw new Error(`Unknown qualifier: ${q}'`);
+      }
+    });
   }
-  
+
   // Replace the parameter
   replacement = ensureArray(replacement);
   replacement = replacement.join("\n");

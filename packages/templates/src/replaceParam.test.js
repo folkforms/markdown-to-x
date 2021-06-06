@@ -14,25 +14,31 @@ const data = {
 };
 
 test("Test 'indent' qualifier", () => {
-  const line = "%steps[indent:2]%";
-  const paramData = { param: "steps", qualifier: "[indent:2]" };
+  const param = "steps";
+  const qualifier = "[indent:2]"
+  const line = `%${param}${qualifier}%`;
+  const paramData = { param, qualifier };
   const actual = replaceParam(line, paramData, data);
   const expected = [ "  Step one", "  Step two", "  Step three" ];
   expect(actual).toEqual(expected);
 });
 
 test("Test 'line' qualifier", () => {
-  const line = "----%description[line:0]%----";
-  const paramData = { param: "description", qualifier: "[line:0]" };
+  const param = "description";
+  const qualifier = "[line:0]";
+  const line = `----%${param}${qualifier}%----`;
+  const paramData = { param, qualifier };
   const actual = replaceParam(line, paramData, data);
   const expected = [ "----Description line 1----" ];
   expect(actual).toEqual(expected);
 });
 
-test.skip("Test multiple qualifiers", () => {
-  const line = "%steps[indent:2,line:0]%";
-  const paramData = { param: "steps", qualifier: undefined };
+test("Test multiple qualifiers", () => {
+  const param = "steps";
+  const qualifier = "[indent:2,line:1]";
+  const line = `%${param}${qualifier}%`;
+  const paramData = { param, qualifier };
   const actual = replaceParam(line, paramData, data);
-  const expected = [ "  Step one" ];
+  const expected = [ "  Step two" ];
   expect(actual).toEqual(expected);
 });
