@@ -21,7 +21,7 @@ const replaceParam = (line, paramData, data, additionalData) => {
       let ok = false;
       if(found = q.match("line:(\\d)")) {
         let line = found[1];
-        replacement = replacement[line];
+        replacement = ensureArray(replacement[line]);
         ok = true;
       }
       if(found = q.match("indent:(\\d)")) {
@@ -29,8 +29,12 @@ const replaceParam = (line, paramData, data, additionalData) => {
         replacement = applyIndentation(replacement, indent);
         ok = true;
       }
+      if(q === "escape") {
+        replacement = replacement.map(item => item.replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/`/g, '\\`'));
+        ok = true;
+      }
       if(!ok) {
-        throw new Error(`Unknown qualifier: ${q}'`);
+        throw new Error(`ERROR: Unknown qualifier: '${q}'`);
       }
     });
   }

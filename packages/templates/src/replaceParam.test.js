@@ -11,34 +11,36 @@ const data = {
     "Step two",
     "Step three",
   ],
+  testEscape: [
+    "testEscape 1 which contains 'single', \"double\" and `backticks` quotes",
+    'testEscape 2 which contains \'single\', "double" and `backticks` quotes',
+    `testEscape 3 which contains 'single', "double" and \`backticks\` quotes`,
+  ],
 };
 
-test("Test 'indent' qualifier", () => {
-  const param = "steps";
-  const qualifier = "[indent:2]"
-  const line = `%${param}${qualifier}%`;
-  const paramData = { param, qualifier };
+const testReplaceParam = (paramData, expected) => {
+  const line = `%${paramData.param}${paramData.qualifier}%`;
   const actual = replaceParam(line, paramData, data);
-  const expected = [ "  Step one", "  Step two", "  Step three" ];
   expect(actual).toEqual(expected);
+}
+
+test("Test multiple qualifiers", () => {
+  testReplaceParam({ param: "steps", qualifier: "[indent:2,line:1,escape]" }, [ "  Step two" ]);
+  testReplaceParam({ param: "testEscape", qualifier: "[line:1,escape]" }, [ "testEscape 2 which contains \\'single\\', \\\"double\\\" and \\`backticks\\` quotes" ]);
+});
+
+test("Test 'indent' qualifier", () => {
+  testReplaceParam({ param: "steps", qualifier: "[indent:2]" }, [ "  Step one", "  Step two", "  Step three" ]);
 });
 
 test("Test 'line' qualifier", () => {
-  const param = "description";
-  const qualifier = "[line:0]";
-  const line = `----%${param}${qualifier}%----`;
-  const paramData = { param, qualifier };
-  const actual = replaceParam(line, paramData, data);
-  const expected = [ "----Description line 1----" ];
-  expect(actual).toEqual(expected);
+  testReplaceParam({ param: "description", qualifier: "[line:0]" }, [ "Description line 1" ]);
 });
 
-test("Test multiple qualifiers", () => {
-  const param = "steps";
-  const qualifier = "[indent:2,line:1]";
-  const line = `%${param}${qualifier}%`;
-  const paramData = { param, qualifier };
-  const actual = replaceParam(line, paramData, data);
-  const expected = [ "  Step two" ];
-  expect(actual).toEqual(expected);
+test("Test 'escape' qualifier", () => {
+  testReplaceParam({ param: "testEscape", qualifier: "[escape]" }, [
+    "testEscape 1 which contains \\'single\\', \\\"double\\\" and \\`backticks\\` quotes",
+    "testEscape 2 which contains \\'single\\', \\\"double\\\" and \\`backticks\\` quotes",
+    "testEscape 3 which contains \\'single\\', \\\"double\\\" and \\`backticks\\` quotes",
+  ]);
 });
