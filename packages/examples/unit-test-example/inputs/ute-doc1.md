@@ -1,10 +1,8 @@
-# Title of Test Case 1
+# AppendStrings Test Case 1
 
 ## Description
 
-This is the description for test case one.
-
-Some more words.
+Test the appendStrings method with "foo" and "bar".
 
 ## Input 1
 

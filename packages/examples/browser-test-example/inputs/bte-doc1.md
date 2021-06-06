@@ -1,8 +1,8 @@
-# Title of Test Case 1
+# Test logging in
 
 ## Description
 
-This is the description for browser test case one.
+Test that when we log in we go to the user home page.
 
 Some more words.
 

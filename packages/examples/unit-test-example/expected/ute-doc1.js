@@ -1,12 +1,10 @@
 /*
-Title of Test Case 1
+AppendStrings Test Case 1
 
-This is the description for test case one.
-
-Some more words.
+Test the appendStrings method with "foo" and "bar".
 */
 
-test('This is the description for test case one. (file: unit-test-example/inputs/ute-doc1.md)', () => {
+test('Test the appendStrings method with "foo" and "bar". (file: unit-test-example/inputs/ute-doc1.md)', () => {
 
   const actual = appendStrings("foo", "bar");
   const expected = "foobar";

@@ -1,14 +1,14 @@
 import utils from AutomatedTestFramework;
 
 /*
-Title of Test Case 1
+Test logging in
 
-This is the description for browser test case one.
+Test that when we log in we go to the user home page.
 
 Some more words.
 */
 
-test('This is the description for browser test case one. (file: browser-test-example/inputs/bte-doc1.md)', () => {
+test('Test that when we log in we go to the user home page. (file: browser-test-example/inputs/bte-doc1.md)', () => {
   utils.navigateTo('https://localhost:3000');
   utils.clickButton('Log in');
   utils.waitForPage('LoginPage');
