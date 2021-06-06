@@ -29,7 +29,7 @@ test("Test 'line' qualifier", () => {
   expect(actual).toEqual(expected);
 });
 
-test("Test multiple qualifiers", () => {
+test.skip("Test multiple qualifiers", () => {
   const line = "%steps[indent:2,line:0]%";
   const paramData = { param: "steps", qualifier: undefined };
   const actual = replaceParam(line, paramData, data);

@@ -1,21 +1,25 @@
 const { replaceParam } = require("./src/replaceParam");
+const { tokeniseAroundParams } = require("./src/tokeniseAroundParams");
 
 const execute = (data, template) => {
 
-  let output = [];
-  for(let i = 0; i < template.length; i++) {
-    let paramData = null;
-    if(paramData = containsParam(template[i], data)) { // "description[0]" or "codeSteps"
-      output.push(replaceParam(template[i], paramData, data));
-    } else {
-      output.push(template[i]);
+  let string = template.join("\n");
+  const tokens = tokeniseAroundParams(string);
+  for(let i = 0; i < tokens.length; i++) {
+    if(isParam(tokens[i])) {
+      const paramData = extractParamData(tokens[i], data);
+      const replaced = replaceParam(tokens[i], paramData, data);
+      tokens[i] = replaced.join("\n");
     }
-  };
-
-  return output.flat();
+  }
+  return tokens.flat().join("").split("\n");
 };
 
-const containsParam = (line, data) => {
+const isParam = token => {
+  return token[0] === "%" && token[token.length - 1] === "%";
+}
+
+const extractParamData = (line, data) => {
   let returnData = null;
   Object.keys(data).forEach(item => {
     if(!returnData) {

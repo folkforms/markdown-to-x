@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the description for test case two.
+This is the description for browser test case two.
 
 It should only contain the login code (type username, type password, click submit button, verify
 that user home page loads).

@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the description for test case one.
+This is the description for browser test case one.
 
 Some more words.
 
@@ -12,4 +12,3 @@ Some more words.
 2. Click the Log in button
 3. Log in as bob/bobspassword
 4. Verify that the user home page loads
-

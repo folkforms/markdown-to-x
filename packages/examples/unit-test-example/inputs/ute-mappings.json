@@ -1,0 +1,10 @@
+{
+    "source": "expected",
+    "destination": "expected2",
+    "mappings": [
+        {
+            "input": "{xxx}",
+            "output": "{xxx}"
+        }
+    ]
+}
