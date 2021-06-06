@@ -9,7 +9,7 @@ const main = (inputFiles, structure, mappingsData, templateData, templateFilenam
     const additionalData = { "@filename": file };
 
     const obj = markdownToJs.execute(structure, input);
-    const mapped = mappings.execute(obj, mappingsData);
+    const mapped = mappingsData ? mappings.execute(obj, mappingsData) : obj;
     const templated = templates.execute(mapped, templateData, additionalData);
 
     let outFilename = file.substring(file.lastIndexOf("/") + 1);

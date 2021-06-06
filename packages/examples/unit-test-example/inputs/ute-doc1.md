@@ -2,7 +2,7 @@
 
 ## Description
 
-This is the description for unit test case one.
+This is the description for test case one.
 
 Some more words.
 
