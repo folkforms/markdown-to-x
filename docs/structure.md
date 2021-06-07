@@ -1,6 +1,6 @@
 # Structure Document
 
-The structure document describes the structure of your markdown input files, and denotes the data in those documents that you want to capture.
+The structure document describes the structure of your input markdown files. It specifies what data you want to capture for later use.
 
 For example, if this is one of your input files:
 
@@ -9,14 +9,14 @@ For example, if this is one of your input files:
 
 ## Description
 
-Test that when we log in we go to the user home page.
+Test that when we log in we are brought to the user page.
 
 ## Steps
 
 1. Go to homepage
 2. Click the Log in button
 3. Log in as bob/bobspassword
-4. Verify that the user home page loads
+4. Verify that the user page loads
 ```
 
 Then your structure document might look like this:
@@ -33,23 +33,21 @@ Then your structure document might look like this:
 {steps}
 ```
 
-Here you want to capture the title and the contents of the "Description" and "Steps" sections. The code will use the structure document to extract that data and create an in-memory object as shown below.
+The code will use the above structure document to capture "title", "description" and "steps" data from the initial input document. It will create an in-memory object like this:
 
 ```
 {
   title: "Test logging in",
   description: [
-    "Test that when we log in we go to the user home page."
+    "Test that when we log in we are brought to the user page."
   ],
   steps: [
     "Go to homepage",
     "Click the Log in button",
     "Log in as bob/bobspassword",
-    "Verify that the user home page loads"
+    "Verify that the user page loads"
   ]
 }
 ```
 
-You can see the level 1 heading "Test logging in" is now the value of the "title" attribute, and the contents of the "Description" and "Steps" sections were converted into arrays of strings called "description" and "steps".
-
-This in-memory data will be passed to the [mappings](mappings.md) code.
+This in-memory object will then be passed to the [mappings](mappings.md) code.

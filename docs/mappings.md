@@ -2,24 +2,24 @@
 
 The mappings are an optional set of inputs designed to convert your data from one form to another.
 
-In our automated browser test example we want to map `steps` to a new attribute called `codeSteps`. For reference, below is the current state of our in-memory data:
+In our automated browser test example we want to map the `steps` attribute to a new attribute called `codeSteps`. For reference, this is the current state of our in-memory object:
 
 ```
 {
   title: "Test logging in",
   description: [
-    "Test that when we log in we go to the user home page."
+    "Test that when we log in we are brought to the user page."
   ],
   steps: [
     "Go to homepage",
     "Click the Log in button",
     "Log in as bob/bobspassword",
-    "Verify that the user home page loads"
+    "Verify that the user page loads"
   ]
 }
 ```
 
-If this is our mappings document:
+This is our mappings document:
 
 ```
 {
@@ -28,19 +28,21 @@ If this is our mappings document:
     "comments": { "prefix": "/* ", "suffix": " */" },
     "mappings": [
         {
-            "input": "Go to homepage",
+            "input": [
+              "Go to homepage",
+              "Go to home page"
+            ],
             "output": "utils.navigateTo('https://localhost:3000');"
         },
         {
-            "input": "Click the Log in button",
+            "input": [
+              "Click the Log in button",
+              "Click the Login button"
+            ],
             "output": [
                 "utils.clickButton('Log in');",
                 "utils.waitForPage('LoginPage');"
             ]
-        },
-        {
-            "input": "Unused step {foo}",
-            "output": "utils.foo('{foo}');"
         },
         {
             "input": "Log in as {username}/{password}",
@@ -51,26 +53,30 @@ If this is our mappings document:
             ]
         },
         {
-            "input": "Verify that the user home page loads",
+            "input": "Verify that the user page loads",
             "output": "utils.waitForPage('UserHomePage');"
         }
     ]
 }
 ```
 
-Then our data will be transformed into this:
+Note 1: We use `{username}` and `{password}` variables in the mapping input `"Log in as {username}/{password}"`. Anything in `{}` in an input will be treated as a variable and substituted into the output.
+
+Note 2: We can have multiple inputs that map to an output, e.g. `[ "Go to homepage", "Go to home page"]`. This allows for alternate spellings and suchlike. If any inputs match then the entire output will be used.
+
+When the mappings code is run our in-memory object will gain a new attribute called `codeSteps`:
 
 ```
 {
   title: "Test logging in",
   description: [
-    "Test that when we log in we go to the user home page."
+    "Test that when we log in we are brought to the user page."
   ],
   steps: [
     "Go to homepage",
     "Click the Log in button",
     "Log in as bob/bobspassword",
-    "Verify that the user home page loads"
+    "Verify that the user page loads"
   ],
   codeSteps: [
     "/* Go to homepage */",
@@ -82,12 +88,12 @@ Then our data will be transformed into this:
     "utils.typeText('bob', '.username-field');",
     "utils.typeText('bobspassword', '.password-field');",
     "utils.clickButton('Log in');",
-    "/* Verify that the user home page loads */",
-    "utils.waitForPage('UserHomePage');"
+    "/* Verify that the user page loads */",
+    "utils.waitForPage('UserPage');"
   ]
 }
 ```
 
-You can see we have a new `codeSteps` attribute containing our automated browser test code.
+Note 3: You can see that comments have been added automatically as part of `codeSteps`. This is to help trace the new data back to the original data. If you want to disable comments you can set comments as `undefined` in your mappings JSON.
 
-This in-memory data will be passed to the [templates](templates.md) code.
+The in-memory object will then be passed to the [templates](templates.md) code.
