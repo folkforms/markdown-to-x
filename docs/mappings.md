@@ -35,10 +35,7 @@ This is our mappings document:
             "output": "utils.navigateTo('https://localhost:3000');"
         },
         {
-            "input": [
-              "Click the Log in button",
-              "Click the Login button"
-            ],
+            "input": "Click the Log in button",
             "output": [
                 "utils.clickButton('Log in');",
                 "utils.waitForPage('LoginPage');"
@@ -62,7 +59,7 @@ This is our mappings document:
 
 Note 1: We use `{username}` and `{password}` variables in the mapping input `"Log in as {username}/{password}"`. Anything in `{}` in an input will be treated as a variable and substituted into the output.
 
-Note 2: We can have multiple inputs that map to an output, e.g. `[ "Go to homepage", "Go to home page"]`. This allows for alternate spellings and suchlike. If any inputs match then the entire output will be used.
+Note 2: We can have multiple inputs that map to an output, e.g. `[ "Go to homepage", "Go to home page" ]`. This allows for alternate spellings and suchlike. If any inputs match then the entire output will be used.
 
 When the mappings code is run our in-memory object will gain a new attribute called `codeSteps`:
 
@@ -94,6 +91,6 @@ When the mappings code is run our in-memory object will gain a new attribute cal
 }
 ```
 
-Note 3: You can see that comments have been added automatically as part of `codeSteps`. This is to help trace the new data back to the original data. If you want to disable comments you can set comments as `undefined` in your mappings JSON.
+Note 3: You can see that comments have been added automatically to `codeSteps`. This is to help trace the new data back to the original data. If you want to disable comments you can set `comments: undefined` (or omit it entirely) from your mappings JSON.
 
 The in-memory object will then be passed to the [templates](templates.md) code.

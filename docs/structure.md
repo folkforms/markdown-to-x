@@ -2,7 +2,7 @@
 
 The structure document describes the structure of your input markdown files. It specifies what data you want to capture for later use.
 
-For example, if this is one of your input files:
+In our automated browser test example we might have the following input file:
 
 ```
 # Test logging in
@@ -19,7 +19,7 @@ Test that when we log in we are brought to the user page.
 4. Verify that the user page loads
 ```
 
-Then your structure document might look like this:
+And our structure document might look like this:
 
 ```
 # {title}

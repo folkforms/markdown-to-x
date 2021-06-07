@@ -42,11 +42,11 @@ test('%description[line:0,escape]% (file: %@filename%)', () => {
 });
 ```
 
-It should be reasonably obvious how a templating system works: Anything inside `%` symbols is considered a template variable and the code will attempt to replace it with something from the in-memory object above. For example, `%description%` will be replaced with the value of 'description' from the in-memory object.
+Anything inside `%` symbols is considered a template variable and the code will attempt to replace it with something from the in-memory object above. For example, `%description%` will be replaced with the value of the `description` attribute from the in-memory object.
 
 Note 1: "Qualifiers" are instructions like `[indent:2]` that can follow a template variable name. They must be inside the `%` symbols. See the "Qualifiers" section below for details.
 
-Note 2: `@filename` is a special template variable (denoted by the `@` symbol) that will substitute the input filename.
+Note 2: `@filename` is a special template variable (denoted by the `@` symbol) that will be replaced with the input filename.
 
 ## Qualifiers
 
@@ -78,4 +78,4 @@ test('Test that when we log in we are brought to the user page. (file: browser-t
 
 This final document will be saved to the output folder as `<input filename>.<template document extension>`.
 
-In our example, the input file `bte-doc1.md` and template file `bte-template.js` will generate an output file called `bte-doc1.js`.
+In our example, the input file `doc1.md` and template file `template.js` will generate an output file called `doc1.js`.
