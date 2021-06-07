@@ -8,6 +8,7 @@
     "Log in as carl/carlspassword"
   ],
   "codeSteps": [
+    "/* Log in as carl/carlspassword */",
     "utils.typeText('carl', '.login-field');",
     "utils.typeText('carlspassword', '.password-field');",
     "utils.clickButton('Log in');"

@@ -10,9 +10,12 @@
     "Step three (bob/bobspassword)"
   ],
   "codeSteps": [
+    "/* Step one */",
     "Code step one",
+    "/* Step two */",
     "Code step two A",
     "Code step two B",
+    "/* Step three (bob/bobspassword) */",
     "Code step three A (bob)",
     "Code step three B (bobspassword)"
   ]

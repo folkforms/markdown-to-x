@@ -1,7 +1,8 @@
 const levenshtein = require('js-levenshtein');
 
 /**
- * Maps...
+ * Maps the data in `input[mappings.source]` to `input[mappings.destination]` using the rules
+ * provided in `mappings.mappings`.
  *
  * @param {object} input input object
  * @param {object} mappings mappings object
@@ -10,7 +11,13 @@ const execute = (input, mappings) => {
   const output = [];
   input[mappings.source].forEach(item => {
     const m = map(item, mappings);
-    output.push(m);
+    if(mappings.comments) {
+      const prefix = mappings.comments.prefix || "";
+      const suffix = mappings.comments.suffix || "";
+      output.push([`${prefix}${item}${suffix}`, m].flat());
+    } else {
+      output.push(m);
+    }
   });
 
   input[mappings.destination] = output.flat();

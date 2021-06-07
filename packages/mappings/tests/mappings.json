@@ -1,6 +1,7 @@
 {
     "source": "steps",
     "destination": "codeSteps",
+    "comments": { "prefix": "/* ", "suffix": " */" },
     "mappings": [
         {
             "input": "Step one",

@@ -10,10 +10,13 @@
     "Multiple inputs option 2b"
   ],
   "codeSteps": [
+    "/* Multiple inputs option 1a blahblah something */",
     "Sentence A brought to you by multiple inputs, foo=blahblah",
     "Sentence B brought to you by multiple inputs, foo=blahblah",
+    "/* Multiple inputs option 1b duckduck something */",
     "Sentence A brought to you by multiple inputs, foo=duckduck",
     "Sentence B brought to you by multiple inputs, foo=duckduck",
+    "/* Multiple inputs option 2b */",
     "This other sentence brought to you by multiple inputs"
   ]
 }
