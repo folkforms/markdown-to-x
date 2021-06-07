@@ -4,8 +4,6 @@
 
 Test that when we log in we go to the user home page.
 
-Some more words.
-
 ## Steps
 
 1. Go to homepage
