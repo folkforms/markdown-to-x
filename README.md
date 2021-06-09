@@ -20,7 +20,9 @@ There are examples in the `packages/examples` folder that can be used as a start
 
 ## Running the code
 
-See the [command-line arguments](docs/args.md) page.
+- `yarn add markdown-to-x`
+- Add a script e.g. `"gen-tests": "markdown-to-x -i=in/**/*.md -s=structure.md [-m=mappings.json] -t=template.js -o=out"` to your `package.json`
+- See the [command-line arguments](docs/args.md) page for more detail on the arguments.
 
 ## Other uses
 
