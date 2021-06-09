@@ -8,4 +8,4 @@
 
 `-t/--template` template document. Specifies the [template document](template.md) to use.
 
-`-o/--output` output folder. Specifies the output folder to place the generated files.
+`-o/--output` output folder. Specifies the output folder for the generated files.

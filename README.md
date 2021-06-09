@@ -21,7 +21,8 @@ There are examples in the `packages/examples` folder that can be used as a start
 ## Running the code
 
 - `yarn add markdown-to-x`
-- Add a script e.g. `"gen-tests": "markdown-to-x -i=in/**/*.md -s=structure.md [-m=mappings.json] -t=template.js -o=out"` to your `package.json`
+- Add the following to your `package.json` scripts:
+    - `"generate-tests": "markdown-to-x -i=in/**/*.md -s=structure.md [-m=mappings.json] -t=template.js -o=out"`
 - See the [command-line arguments](docs/args.md) page for more detail on the arguments.
 
 ## Other uses
