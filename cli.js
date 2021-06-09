@@ -5,13 +5,6 @@ const glob = require("glob");
 const fileio = require("@folkforms/file-io");
 const { main } = require("./packages/integration/integration");
 
-// Sort out args
-//   -i/--input     => input glob
-//   -s/--structure => structure doc
-//   -m/--mappings  => mappings file (optional)
-//   -t/--template  => template file
-//   -o/--output    => output folder
-
 const verifyArgs = args => {
   let error = false;
   if(!args.input) {
@@ -34,6 +27,25 @@ const verifyArgs = args => {
 }
 
 // ================================================================
+
+const printHelpText = () => {
+  console.log("");
+  console.log("Usage:");
+  console.log("");
+  console.log("markdown-to-x -i=in/**/*.md -s=structure.md [-m=mappings.json] -t=template.js -o=out");
+  console.log("");
+  console.log("  -i/--input     => input glob");
+  console.log("  -s/--structure => structure doc");
+  console.log("  -m/--mappings  => mappings file (optional)");
+  console.log("  -t/--template  => template file");
+  console.log("  -o/--output    => output folder");
+  console.log("");
+}
+
+if(process.argv.indexOf("-h") != -1 || process.argv.indexOf("--help") != -1) {
+  printHelpText();
+  return 0;
+}
 
 const args = getArgs();
 const error = verifyArgs(args);
