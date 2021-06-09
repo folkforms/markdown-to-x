@@ -32,10 +32,6 @@
     "url": "https://github.com/folkforms/markdown-to-x/issues"
   },
   "homepage": "https://github.com/folkforms/markdown-to-x#readme",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
   "dependencies": {
     "@folkforms/file-io": "^0.2.0",
     "glob": "^7.1.7",
