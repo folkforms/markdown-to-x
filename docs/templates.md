@@ -61,7 +61,7 @@ Our in-memory object and template file are used to generate the final output doc
 ```
 import utils from AutomatedTestFramework;
 
-test('Test that when we log in we are brought to the user page. (file: browser-test-example/inputs/bte-doc1.md)', () => {
+test('Test that when we log in we are brought to the user page. (file: browser-test-example/inputs/testcase1.md)', () => {
   /* Go to homepage */
   utils.navigateTo('https://localhost:3000');
   /* Click the Log in button */
@@ -78,4 +78,4 @@ test('Test that when we log in we are brought to the user page. (file: browser-t
 
 This final document will be saved to the output folder as `<input filename>.<template document extension>`.
 
-In our example, the input file `doc1.md` and template file `template.js` will generate an output file called `doc1.js`.
+For example, an input file `testcase1.md` and template file `template.js` will generate an output file called `testcase1.js`.
