@@ -5,25 +5,41 @@ const glob = require("glob");
 const fileio = require("@folkforms/file-io");
 const { main } = require("./packages/integration/integration");
 
-console.log("######## hello");
-return 0;
-
 // Sort out args
 //   -i/--input     => input glob
 //   -s/--structure => structure doc
-//   -m/--mappings  => mappings file
+//   -m/--mappings  => mappings file (optional)
 //   -t/--template  => template file
 //   -o/--output    => output folder
 
 const verifyArgs = args => {
-  console.log("FIXME Need to verify args are present and correct...");
-  // FIXME Also args.output should trim any ending "/"
+  let error = false;
+  if(!args.input) {
+    console.log(`Error: Missing input glob. Use -i/--input=<glob>`);
+    error = true;
+  }
+  if(!args.structure) {
+    console.log(`Error: Missing structure document. Use -s/--structure=<structure document>`);
+    error = true;
+  }
+  if(!args.template) {
+    console.log(`Error: Missing template document. Use -t/--template=<template document>`);
+    error = true;
+  }
+  if(!args.output) {
+    console.log(`Error: Missing output folder. Use -o/--output=<output folder>`);
+    error = true;
+  }
+  return error;
 }
 
 // ================================================================
 
 const args = getArgs();
-verifyArgs(args);
+const error = verifyArgs(args);
+if(error) {
+  return 1;
+}
 
 const inputFiles = glob.sync(args.input);
 const structure = fileio.readLines(args.structure);
