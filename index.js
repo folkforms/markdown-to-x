@@ -1,7 +1,12 @@
+#!/usr/bin/env node
+
 const getArgs = require("./args");
 const glob = require("glob");
 const fileio = require("@folkforms/file-io");
 const { main } = require("./packages/integration/integration");
+
+console.log("######## hello");
+return 0;
 
 // Sort out args
 //   -i/--input     => input glob
