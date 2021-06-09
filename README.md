@@ -12,7 +12,7 @@ Read the following pages if you want to understand how your markdown gets conver
 2. [Mappings data](docs/mappings.md)
 3. [Template document](docs/templates.md)
 
-TL;DR: You provide mapping data that will be used to map English sentences to code, a structure document that describes the structure of your input files, a template document for the final output, and your input documents. When you run `markdown-to-x` it will use all of these to create (in this example) some automated browser tests. These tests can then be run by your favourite automated browser testing framework.
+TL;DR: You provide a structure document that describes the structure of your input files, optional mapping data used to map input data to another format (e.g. English sentences to code), a template document for the final output, and your input documents. When you run `markdown-to-x` it will use all of these to create (in this example) some automated browser tests. These tests can then be run by your favourite automated browser testing framework.
 
 ## Getting started
 
