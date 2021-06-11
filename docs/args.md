@@ -9,3 +9,5 @@
 `-t/--template` template document. Specifies the [template document](template.md) to use.
 
 `-o/--output` output folder. Specifies the output folder for the generated files.
+
+`-e/--extension` output file extension (optional). Specifies the extension for the generated files.
