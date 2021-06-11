@@ -3,7 +3,7 @@
 const getArgs = require("./args");
 const glob = require("glob");
 const fileio = require("@folkforms/file-io");
-const { main } = require("./packages/integration/integration");
+const markdownToX = require("../integration/markdownToX");
 
 const verifyArgs = args => {
   let error = false;
@@ -58,4 +58,21 @@ const structure = fileio.readLines(args.structure);
 const mappingsData = args.mappings ? fileio.readJson(args.mappings) : null;
 const templateData = fileio.readLines(args.template);
 
-main(inputFiles, structure, mappingsData, templateData, args.template, args.output);
+const output = {};
+inputFiles.forEach(file => {
+  // Create output filename
+  let outFilename = file.substring(file.lastIndexOf("/") + 1);
+  outFilename = outFilename.substring(0, outFilename.lastIndexOf("."));
+  let outFileExtension = args.template.substring(args.template.lastIndexOf("."));
+  const outputFilename = `${args.output}/${outFilename}${outFileExtension}`;
+
+  // Read input file data
+  const input = fileio.readLines(file);
+
+  // Convert data and push to output array
+  output[outputFilename] = markdownToX(input, structure, mappingsData, templateData, file);
+});
+// Write output files
+Object.keys(output).forEach(file => {
+  fileio.writeLines(file, output[file]);
+});

@@ -1,15 +1,14 @@
 {
-  "name": "example",
+  "name": "cli",
   "version": "0.0.1",
-  "description": "Example tests of the entire system.",
-  "main": "index.js",
+  "description": "Command-line interface for markdown-to-x.",
+  "main": "cli.js",
   "author": "folkforms",
   "license": "MIT",
   "scripts": {
     "test": "jest"
   },
   "dependencies": {
-    "cross-env": "5.0.5",
     "jest": "^27.0.4"
   }
 }
