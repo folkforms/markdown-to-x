@@ -9,6 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "cross-env": "5.0.5"
+    "cross-env": "5.0.5",
+    "jest": "^27.0.4"
   }
 }

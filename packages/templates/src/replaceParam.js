@@ -29,6 +29,15 @@ const replaceParam = (line, paramData, data, additionalData) => {
         replacement = applyIndentation(replacement, indent);
         ok = true;
       }
+      if(q === "toArray") {
+        let r = [ "[" ];
+        for(let i = 0; i < replacement.length; i++) {
+          r.push("  \"" + replacement[i] + "\"" + `${i < replacement.length - 1 ? "," : ""}`);
+        }
+        r.push("]");
+        replacement = r;
+        ok = true;
+      }
       if(q === "escape") {
         replacement = replacement.map(item => item.replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/`/g, '\\`'));
         ok = true;

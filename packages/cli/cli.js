@@ -32,13 +32,14 @@ const printHelpText = () => {
   console.log("");
   console.log("Usage:");
   console.log("");
-  console.log("markdown-to-x -i=in/**/*.md -s=structure.md [-m=mappings.json] -t=template.js -o=out");
+  console.log("markdown-to-x -i=in/**/*.md -s=structure.md [-m=mappings.json] -t=template.js -o=out [-e=.test.js]");
   console.log("");
   console.log("  -i/--input     => input glob");
   console.log("  -s/--structure => structure doc");
   console.log("  -m/--mappings  => mappings file (optional)");
   console.log("  -t/--template  => template file");
   console.log("  -o/--output    => output folder");
+  console.log("  -e/--extension => output file extension");
   console.log("");
 }
 
@@ -63,7 +64,7 @@ inputFiles.forEach(file => {
   // Create output filename
   let outFilename = file.substring(file.lastIndexOf("/") + 1);
   outFilename = outFilename.substring(0, outFilename.lastIndexOf("."));
-  let outFileExtension = args.template.substring(args.template.lastIndexOf("."));
+  let outFileExtension = args.extension || args.template.substring(args.template.lastIndexOf("."));
   const outputFilename = `${args.output}/${outFilename}${outFileExtension}`;
 
   // Read input file data

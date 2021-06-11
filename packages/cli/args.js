@@ -10,6 +10,8 @@ const args = () => {
     "--template": "template",
     "-o": "output",
     "--output": "output",
+    "-e": "extension",
+    "--extension": "extension",
   }
   const outputs = {};
   for(let i = 2; i < process.argv.length; i++) {
