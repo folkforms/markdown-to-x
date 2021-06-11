@@ -38,6 +38,10 @@ const replaceParam = (line, paramData, data, additionalData) => {
         replacement = r;
         ok = true;
       }
+      if(q === "fromCodeBlock") {
+        replacement = replacement.map(item => item.substring(4));
+        ok = true;
+      }
       if(q === "escape") {
         replacement = replacement.map(item => item.replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/`/g, '\\`'));
         ok = true;

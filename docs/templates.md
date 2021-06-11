@@ -53,6 +53,8 @@ Note 2: `@filename` is a special template variable (denoted by the `@` symbol) t
 - `indent:<number>` indents each line of data by the given number of spaces.
 - `line:<number>` only use the given line number, e.g. `description[line:0]` will return the first line only of the `description` array.
 - `escape` escapes any ', " or ` characters. Useful when putting template variables inside strings.
+- `fromCodeBlock` chops off the first 4 characters of each line.
+- `toArray` outputs the data as an array of strings. Useful for wrangling the data in tests.
 
 ## Final result
 

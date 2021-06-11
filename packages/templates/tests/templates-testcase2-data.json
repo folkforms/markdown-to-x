@@ -1,5 +1,5 @@
 {
-    "title": "Some title",
+    "title": "Test 'toArray' qualifier converts the data into an array",
     "description": [
       "description line 1",
       "description line 2"

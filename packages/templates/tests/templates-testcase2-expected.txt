@@ -1,4 +1,4 @@
-// title: Some title
+// title: Test 'toArray' qualifier converts the data into an array
 
 test(('description line 1') => {
   [
