@@ -8,8 +8,10 @@
   "scripts": {
     "test": "jest"
   },
-  "dependencies": {
-    "cross-env": "5.0.5",
+  "dependencies": {},
+  "devDependencies": {
+    "@folkforms/file-io": "^0.2.1",
+    "glob": "^7.1.7",
     "jest": "^27.0.4"
   }
 }
