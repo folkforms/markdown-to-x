@@ -11,7 +11,9 @@
   },
   "scripts": {
     "cli": "node ./packages/cli/cli.js",
-    "release": "npm whoami && npm version patch && npm publish",
+    "release": "npm whoami && yarn prune-all && npm version patch && npm publish && yarn unprune-all",
+    "prune-all": "lerna run prune",
+    "unprune-all": "lerna run unprune",
     "example-bte": "node packages/cli/cli.js -- --input=packages/examples/browser-test-example/inputs/bte-doc*.md --structure=packages/examples/browser-test-example/inputs/bte-structure.md --mappings=packages/examples/browser-test-example/inputs/bte-mappings.json --template=packages/examples/browser-test-example/inputs/bte-template.js --output=packages/examples/browser-test-example/outputs",
     "example-ute": "node packages/cli/cli.js -- --input=packages/examples/unit-test-example/inputs/ute-doc*.md --structure=packages/examples/unit-test-example/inputs/ute-structure.md --template=packages/examples/unit-test-example/inputs/ute-template.js --output=packages/examples/unit-test-example/outputs",
     "test": "lerna run test --ignore integration --ignore cli"
@@ -33,9 +35,8 @@
     "url": "https://github.com/folkforms/markdown-to-x/issues"
   },
   "homepage": "https://github.com/folkforms/markdown-to-x#readme",
-  "dependencies": {},
   "devDependencies": {
-    "jest": "^27.0.4",
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "jest": "^27.0.4"
   }
 }

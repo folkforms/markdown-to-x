@@ -6,6 +6,8 @@
   "author": "folkforms",
   "license": "MIT",
   "scripts": {
+    "prune": "yarn install --production --force",
+    "unprune": "yarn install",
     "test": "jest"
   },
   "dependencies": {}
