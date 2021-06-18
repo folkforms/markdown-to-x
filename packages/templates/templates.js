@@ -1,7 +1,7 @@
 const { replaceParam } = require("./src/replaceParam");
 const { tokeniseAroundParams } = require("./src/tokeniseAroundParams");
 
-const execute = (data, template, additionalData) => {
+const execute = (template, data, additionalData) => {
 
   let string = template.join("\n");
   const tokens = tokeniseAroundParams(string);

@@ -6,7 +6,7 @@ const markdownToX = (input, structure, mappingsData, templateData, filename) => 
   const additionalData = { "@filename": filename };
   const obj = markdownToJs.execute(structure, input);
   const mapped = mappingsData ? mappings.execute(obj, mappingsData) : obj;
-  const templated = templates.execute(mapped, templateData, additionalData);
+  const templated = templates.execute(templateData, mapped, additionalData);
   return templated;
 }
 

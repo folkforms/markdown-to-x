@@ -16,7 +16,7 @@ for(let i = 0; i < outputs.length; i++) {
     const expected = io.readLines(outputs[i]);
 
     // Act
-    const actual = templates.execute(inputData, inputTemplate);
+    const actual = templates.execute(inputTemplate, inputData);
 
     // Assert
     expect(actual).toEqual(expected);
