@@ -1,7 +1,7 @@
 {
   "name": "templates",
   "version": "0.0.1",
-  "description": "Simple templating system.",
+  "description": "Templating system.",
   "main": "templates.js",
   "author": "folkforms",
   "license": "MIT",
@@ -10,7 +10,9 @@
     "unprune": "yarn install",
     "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "nunjucks": "^3.2.3"
+  },
   "devDependencies": {
     "@folkforms/file-io": "^0.2.1",
     "glob": "^7.1.7",

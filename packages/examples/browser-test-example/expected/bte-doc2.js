@@ -11,7 +11,7 @@ It should only contain the login code (type username, type password, click submi
 that user home page loads).
 */
 
-test('This is the description for browser test case two. Aka \"Steve\" or \'Benny\'. (file: browser-test-example/inputs/bte-doc2.md)', () => {
+test('This is the description for browser test case two. Aka "Steve" or \'Benny\'. (file: browser-test-example/inputs/bte-doc2.md)', () => {
   /* Log in as carl/carlspassword */
   utils.typeText('carl', '.username-field');
   utils.typeText('carlspassword', '.password-field');

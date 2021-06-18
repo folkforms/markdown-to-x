@@ -1,39 +1,39 @@
-const { replaceParam } = require("./src/replaceParam");
-const { tokeniseAroundParams } = require("./src/tokeniseAroundParams");
+const nunjucks = require("nunjucks");
 
 const execute = (template, data, additionalData) => {
+  const env = nunjucks.configure({ autoescape: false });
+  env.addFilter("doublequote", doubleQuote);
+  env.addFilter("trimarray", trimArray);
+  env.addFilter("escapedoublequotes", escapeDoubleQuotes);
+  env.addFilter("escapesinglequotes", escapeSingleQuotes);
+  env.addFilter("escapebackticks", escapeBackticks);
+  env.addFilter("edq", escapeDoubleQuotes);
+  env.addFilter("esq", escapeSingleQuotes);
+  env.addFilter("ebt", escapeBackticks);
 
-  let string = template.join("\n");
-  const tokens = tokeniseAroundParams(string);
-  for(let i = 0; i < tokens.length; i++) {
-    if(isParam(tokens[i])) {
-      const paramData = extractParamData(tokens[i], data, additionalData);
-      const replaced = replaceParam(tokens[i], paramData, data, additionalData);
-      tokens[i] = replaced.join("\n");
-    }
-  }
-  return tokens.flat().join("").split("\n");
+  let str = template.join("\n");
+  const output = nunjucks.renderString(str, { ...data, ...additionalData });
+  return output.split("\n");
 };
 
-const isParam = token => {
-  return token[0] === "%" && token[token.length - 1] === "%";
+const doubleQuote = arr => {
+  return arr.map(item => `"${item}"`);
 }
 
-const extractParamData = (line, data, additionalData) => {
-  const combinedData = { ...data, ...additionalData };
-  let returnData = null;
-  Object.keys(combinedData).forEach(item => {
-    if(!returnData) {
-      const found = line.match(`%${item}(.*?)%`);
-      if(found) {
-        returnData = {
-          param: item,
-          qualifier: found?.length > 0 && found[1] ? found[1]: undefined,
-        };
-      }
-    }
-  });
-  return returnData;
+const trimArray = arr => {
+  return arr.map(item => item.trim());
+}
+
+const escapeDoubleQuotes = str => {
+  return str.replace(/"/g, `\\"`);
+}
+
+const escapeSingleQuotes = str => {
+  return str.replace(/'/g, `\\'`);
+}
+
+const escapeBackticks = str => {
+  return str.replace(/`/g, "\\`");
 }
 
 module.exports = { execute };

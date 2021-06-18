@@ -1,11 +1,11 @@
 import utils from AutomatedTestFramework;
 
 /*
-%title%
+{{ title }}
 
-%description%
+{{ description | join("\n") }}
 */
 
-test('%description[line:0,escape]% (file: %@filename%)', () => {
-%codeSteps[indent:2]%
+test('{{ description | first | esq }} (file: {{ @filename }})', () => {
+  {{ codeSteps | join("\n") | indent(2) }}
 });

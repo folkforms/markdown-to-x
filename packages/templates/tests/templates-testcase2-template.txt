@@ -1,5 +1,7 @@
-// title: %title%
+// title: {{ title }}
 
-test(('%description[line:0]%') => {
-%codeSteps[toArray,indent:2]%;
+test(('{{ description | first }}') => {
+  [
+    {{ codeSteps | doublequote | join(",\n") | indent(4) }}
+  ];
 });

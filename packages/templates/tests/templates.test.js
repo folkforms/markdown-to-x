@@ -14,9 +14,10 @@ for(let i = 0; i < outputs.length; i++) {
     const inputTemplate = io.readLines(inputTemplates[i]);
     const inputData = io.readJson(inputJson[i]);
     const expected = io.readLines(outputs[i]);
+    const additionalData = { "@filename": "foo.txt" };
 
     // Act
-    const actual = templates.execute(inputTemplate, inputData);
+    const actual = templates.execute(inputTemplate, inputData, additionalData);
 
     // Assert
     expect(actual).toEqual(expected);

@@ -1,5 +1,5 @@
-// title: %title%
+// title: {{ title }}
 
-test(('%description[line:0]%') => {
-%codeSteps[fromCodeBlock,indent:2]%
+test(('{{ description | first }}') => {
+  {{ codeSteps | trimarray | join("\n") | indent(2) }}
 });

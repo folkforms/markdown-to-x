@@ -1,13 +1,13 @@
 /*
-%title%
+{{ title }}
 
-%description%
+{{ description | join("\n") }}
 */
 
-test('%description[line:0]% (file: %@filename%)', () => {
+test('{{ description | first }} (file: {{ @filename }})', () => {
 
-  const actual = appendStrings("%input1%", "%input2%");
-  const expected = "%expected%";
+  const actual = appendStrings("{{ input1 }}", "{{ input2 }}");
+  const expected = "{{ expected }}";
 
   expect(actual).toEqual(expected);
 });

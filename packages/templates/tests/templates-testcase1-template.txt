@@ -1,5 +1,5 @@
-// title: %title%
+// title: {{ title }}
 
-test(('%description[line:0]%') => {
-%codeSteps[indent:2]%
+test(('{{ description | first }} (file: {{ @filename }})') => {
+  {{ codeSteps | join("\n") | indent(2) }}
 });
