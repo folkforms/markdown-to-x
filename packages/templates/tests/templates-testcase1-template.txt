@@ -1,5 +1,5 @@
 // title: {{ title }}
 
-test(('{{ description | first }} (file: {{ @filename }})') => {
+test('{{ description | first }} (file: {{ @filename }})', () => {
   {{ codeSteps | join("\n") | indent(2) }}
 });

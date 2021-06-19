@@ -1,6 +1,6 @@
 // title: Test 'fromCodeBlock' qualifier chops off the first 4 chars
 
-test(('description line 1') => {
+test('description line 1', () => {
   Code step one
   Code step two A
   Code step two B

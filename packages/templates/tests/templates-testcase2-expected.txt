@@ -1,6 +1,6 @@
 // title: Test 'toArray' qualifier converts the data into an array
 
-test(('description line 1') => {
+test('description line 1', () => {
   [
     "Code step one",
     "Code step two A",

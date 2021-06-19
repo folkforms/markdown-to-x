@@ -1,6 +1,6 @@
 // title: {{ title }}
 
-test(('{{ description | first }}') => {
+test('{{ description | first }}', () => {
   [
     {{ codeSteps | doublequote | join(",\n") | indent(4) }}
   ];
