@@ -3,9 +3,9 @@ const io = require("@folkforms/file-io");
 const templates = require("../templates.js")
 
 // Glob up all test case inputs and outputs
-const inputTemplates = glob.sync("**/*-template.txt");
-const inputJson = glob.sync("**/*-data.json");
-const outputs = glob.sync("**/*-expected.txt");
+const inputTemplates = glob.sync("packages/templates/**/*-template.txt");
+const inputJson = glob.sync("packages/templates/**/*-data.json");
+const outputs = glob.sync("packages/templates/**/*-expected.txt");
 
 // Test each pair in turn
 for(let i = 0; i < outputs.length; i++) {

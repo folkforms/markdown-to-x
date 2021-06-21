@@ -4,11 +4,11 @@ const markdownToX = require("../../integration/markdownToX");
 
 test('unit test example 1', () => {
   // Arrange
-  const inputFiles = glob.sync("unit-test-example/inputs/ute-doc*.md");
-  const structure = fileio.readLines("unit-test-example/inputs/ute-structure.md");
-  const templateFilename = "unit-test-example/inputs/ute-template.js";
+  const inputFiles = glob.sync("packages/examples/unit-test-example/inputs/ute-doc*.md");
+  const structure = fileio.readLines("packages/examples/unit-test-example/inputs/ute-structure.md");
+  const templateFilename = "packages/examples/unit-test-example/inputs/ute-template.js";
   const templateData = fileio.readLines(templateFilename);
-  const expectedFiles = glob.sync("unit-test-example/expected/ute-doc*.js");
+  const expectedFiles = glob.sync("packages/examples/unit-test-example/expected/ute-doc*.js");
 
   for(let i = 0; i < inputFiles.length; i++) {
     const file = inputFiles[i];

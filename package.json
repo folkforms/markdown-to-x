@@ -11,12 +11,10 @@
   },
   "scripts": {
     "cli": "node ./packages/cli/cli.js",
-    "release": "yarn test && npm whoami && yarn prune-all && npm version patch && npm publish && yarn unprune-all",
-    "prune-all": "lerna run prune",
-    "unprune-all": "lerna run unprune",
+    "release": "yarn test && npm whoami && yarn install --production --force && npm version patch && npm publish && yarn install",
     "example-bte": "node packages/cli/cli.js -- --input=packages/examples/browser-test-example/inputs/bte-doc*.md --structure=packages/examples/browser-test-example/inputs/bte-structure.md --mappings=packages/examples/browser-test-example/inputs/bte-mappings.json --template=packages/examples/browser-test-example/inputs/bte-template.js --output=packages/examples/browser-test-example/outputs",
     "example-ute": "node packages/cli/cli.js -- --input=packages/examples/unit-test-example/inputs/ute-doc*.md --structure=packages/examples/unit-test-example/inputs/ute-structure.md --template=packages/examples/unit-test-example/inputs/ute-template.js --output=packages/examples/unit-test-example/outputs",
-    "test": "lerna run test --ignore integration --ignore cli"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -36,7 +34,12 @@
   },
   "homepage": "https://github.com/folkforms/markdown-to-x#readme",
   "devDependencies": {
-    "lerna": "^4.0.0",
     "jest": "^27.0.4"
+  },
+  "dependencies": {
+    "@folkforms/file-io": "^0.2.1",
+    "glob": "^7.1.7",
+    "js-levenshtein": "^1.1.6",
+    "nunjucks": "^3.2.3"
   }
 }
