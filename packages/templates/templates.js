@@ -10,6 +10,7 @@ const execute = (template, data, additionalData) => {
   env.addFilter("edq", escapeDoubleQuotes);
   env.addFilter("esq", escapeSingleQuotes);
   env.addFilter("ebt", escapeBackticks);
+  env.addFilter("usedefault", useDefault);
 
   let str = template.join("\n");
   const output = nunjucks.renderString(str, { ...data, ...additionalData });
@@ -34,6 +35,10 @@ const escapeSingleQuotes = str => {
 
 const escapeBackticks = str => {
   return str.replace(/`/g, "\\`");
+}
+
+const useDefault = (arr, value) => {
+  return arr.length > 0 ? arr : value;
 }
 
 module.exports = { execute };
