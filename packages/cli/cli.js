@@ -3,6 +3,7 @@
 const getArgs = require("./args");
 const glob = require("glob");
 const fileio = require("@folkforms/file-io");
+const shelljs = require("shelljs");
 const markdownToX = require("../integration/markdownToX");
 
 const verifyArgs = args => {
@@ -59,6 +60,10 @@ const structure = fileio.readLines(args.structure);
 const mappingsData = args.mappings ? fileio.readJson(args.mappings) : null;
 const templateData = fileio.readLines(args.template);
 
+// Wipe output folder
+shelljs.rm("-rf", `${args.output}/*`);
+
+// Process files
 const output = {};
 inputFiles.forEach(file => {
   // Create output filename
