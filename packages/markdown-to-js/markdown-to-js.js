@@ -62,7 +62,7 @@ const findMatchingHeading = (level, count, input) => {
     if(input[i].startsWith(md)) {
       count--;
       if(count === 0) {
-        return chop(input[i].substring(md.length));
+        return input[i].substring(md.length).trimEnd();
       }
     }
   }
@@ -85,7 +85,7 @@ const getBody = (input, heading) => {
     array.push(input[i]);
   }
   // Trim trailing newlines
-  array = array.map(item => chop(item));
+  array = array.map(item => item.trimEnd());
   // Remove empty lines at end of array
   for(let i = array.length - 1; i >= 0; i--) {
     if(array[i].length === 0) {
@@ -95,10 +95,6 @@ const getBody = (input, heading) => {
     }
   }
   return array;
-}
-
-const chop = string => {
-  return string.substring(0, string.length - 1);
 }
 
 const cleanLists = array => {
