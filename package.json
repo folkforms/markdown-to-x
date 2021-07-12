@@ -11,7 +11,7 @@
   },
   "scripts": {
     "cli": "node ./packages/cli/cli.js",
-    "release": "yarn test && npm whoami && yarn install --production --force && npm version patch && npm publish && yarn install",
+    "release": "npm-release",
     "example-bte": "node packages/cli/cli.js -- --input=packages/examples/browser-test-example/inputs/bte-doc*.md --structure=packages/examples/browser-test-example/inputs/bte-structure.md --mappings=packages/examples/browser-test-example/inputs/bte-mappings.json --template=packages/examples/browser-test-example/inputs/bte-template.js --output=packages/examples/browser-test-example/outputs",
     "example-ute": "node packages/cli/cli.js -- --input=packages/examples/unit-test-example/inputs/ute-doc*.md --structure=packages/examples/unit-test-example/inputs/ute-structure.md --template=packages/examples/unit-test-example/inputs/ute-template.js --output=packages/examples/unit-test-example/outputs",
     "test": "jest"
@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/folkforms/markdown-to-x#readme",
   "devDependencies": {
+    "@folkforms/npm-release": "^0.0.17",
     "jest": "^27.0.4"
   },
   "dependencies": {
