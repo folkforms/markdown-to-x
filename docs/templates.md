@@ -46,7 +46,12 @@ Anything inside `%` symbols is considered a template variable and the code will 
 
 Note 1: "Qualifiers" are instructions like `[indent:2]` that can follow a template variable name. They must be inside the `%` symbols. See the "Qualifiers" section below for details.
 
-Note 2: `@filename` is a special template variable (denoted by the `@` symbol) that will be replaced with the input filename.
+## Special variables
+
+Special variables (denoted by the `@` symbol) are automatically captured and do not need to be listed in the structure document.
+
+- `@filename`: the input filename
+- `@contents`: the full contents of the input file as an array of strings
 
 ## Qualifiers
 
