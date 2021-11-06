@@ -1,4 +1,3 @@
-const glob = require("glob");
 const fileio = require("@folkforms/file-io");
 const markdownToX = require("../../integration/markdownToX");
 
