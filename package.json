@@ -1,6 +1,6 @@
 {
   "name": "markdown-to-x",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Convert markdown documents to other formats, e.g. automated tests.",
   "main": "./packages/integration/markdownToX.js",
   "directories": {
