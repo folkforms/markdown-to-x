@@ -34,6 +34,7 @@
   },
   "homepage": "https://github.com/folkforms/markdown-to-x#readme",
   "devDependencies": {
+    "@folkforms/line-endings": "^0.0.11",
     "@folkforms/npm-release": "^0.0.17",
     "jest": "^27.0.4"
   },
