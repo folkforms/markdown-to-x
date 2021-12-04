@@ -14,7 +14,7 @@ const execute = (structure, input, userOptions) => {
   const output = {};
   const headings = [];
   for(let i = 0; i < structure.length; i++) {
-    let param = findParamInStructureDoc(structure[i]);
+    let param = checkIfLineContainsParam(structure[i]);
     if(param) {
       if(debug) { console.log(`execute: param = ${param}`); }
       // If param is inside a heading i.e. is the heading itself like "# {title}"
@@ -47,7 +47,7 @@ const execute = (structure, input, userOptions) => {
   return output;
 }
 
-const findParamInStructureDoc = line => {
+const checkIfLineContainsParam = line => {
   const start = line.indexOf("{");
   const end = line.indexOf("}");
   if(start != -1 && end != -1) {
@@ -88,10 +88,10 @@ const findMatchingHeading = (level, count, input) => {
 const getBody = (input, heading) => {
   if(debug) { console.log(`getBody: input = ${input}, heading = ${heading}`); }
 
-  if(input.indexOf(heading) === -1) {
-    if(debug) { console.log(`getBody: Heading '${heading}' not found in input '${input}'`); }
-    return [];
-  }
+  // if(input.indexOf(heading) === -1) {
+  //   if(debug) { console.log(`getBody: Heading '${heading}' not found in input '${input}'`); }
+  //   return [];
+  // }
 
   let startIndex = 0;
   for(let i = 0; i < input.length; i++) {

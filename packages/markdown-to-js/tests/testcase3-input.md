@@ -1,10 +1,7 @@
-Test that missing sections return null.
+# Title of Test Case 3
 
-title is missing so we expect to get "title: null"
-steps is missing so we expect to get "steps: []"
+Test that an empty section will return an empty array.
 
 ## Description
 
-This is the description for test case one.
-
-Some more words.
+## Steps

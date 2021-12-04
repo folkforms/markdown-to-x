@@ -1,9 +1,5 @@
 {
-  "title": null,
-  "description": [
-      "This is the description for test case one.",
-      "",
-      "Some more words."
-  ],
+  "title": "Title of Test Case 3",
+  "description": [],
   "steps": []
 }
