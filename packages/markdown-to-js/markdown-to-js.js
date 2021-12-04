@@ -1,9 +1,18 @@
-const execute = (structure, input, options = { cleanLists: true }) => {
+let debug = false;
+
+const execute = (structure, input, options = { cleanLists: true, debug: false }) => {
+  debug = options.debug;
+  if(debug) { console.log(`execute: (start)`); }
+  if(debug) { console.log(`execute: structure = ${structure}`); }
+  if(debug) { console.log(`execute: input = ${input}`); }
+  if(debug) { console.log(`execute: options = ${JSON.stringify(options)}`); }
   const output = {};
   const headings = [];
   for(let i = 0; i < structure.length; i++) {
-    let param = findParam(structure[i]);
+    let param = findParamInStructureDoc(structure[i]);
     if(param) {
+      if(debug) { console.log(`execute: param = ${param}`); }
+      // If param is inside a heading i.e. is the heading itself like "# {title}"
       if(structure[i].startsWith("#")) {
         // Get heading level (e.g. 2)
         const level = getHeadingLevel(structure[i]);
@@ -12,13 +21,15 @@ const execute = (structure, input, options = { cleanLists: true }) => {
         const matchingHeading = findMatchingHeading(level, headings[level - 1], input);
         output[param] = matchingHeading;
       } else {
+        // The param is part of the body i.e. "# Foo\n\n{foo}\n" -> "{foo}"
         // Walk back up and find heading name
         for(let j = i - 1; j >= 0; j--) {
           if(structure[j].startsWith("#")) {
+            if(debug) { console.log(`execute: Found match for param '${param}'`); }
             const previousHeading = structure[j];
             // Find matching heading in input doc
             const body = getBody(input, previousHeading);
-            if(options.cleanLists) {
+            if(body && options.cleanLists) {
               cleanLists(body);
             }
             output[param] = body;
@@ -31,7 +42,7 @@ const execute = (structure, input, options = { cleanLists: true }) => {
   return output;
 }
 
-const findParam = line => {
+const findParamInStructureDoc = line => {
   const start = line.indexOf("{");
   const end = line.indexOf("}");
   if(start != -1 && end != -1) {
@@ -70,6 +81,13 @@ const findMatchingHeading = (level, count, input) => {
 }
 
 const getBody = (input, heading) => {
+  if(debug) { console.log(`getBody: input = ${input}, heading = ${heading}`); }
+
+  if(input.indexOf(heading) === -1) {
+    if(debug) { console.log(`getBody: Heading '${heading}' not found in input '${input}'`); }
+    return null;
+  }
+
   let startIndex = 0;
   for(let i = 0; i < input.length; i++) {
     if(input[i].startsWith(heading)) {

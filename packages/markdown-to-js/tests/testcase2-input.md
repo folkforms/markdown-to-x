@@ -1,5 +1,7 @@
 # Title of Test Case 2
 
+Positive test case. List in steps should be cleaned of "-"s.
+
 ## Description
 
 This is the description for test case two.
