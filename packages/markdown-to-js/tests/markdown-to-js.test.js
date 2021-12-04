@@ -14,8 +14,13 @@ for(let i = 0; i < inputs.length; i++) {
     const input = fileio.readLines(inputs[i]);
     const expected = fileio.readJson(outputs[i]);
 
+    const options = {
+      cleanLists: true,
+      missingContentReturnsEmptyArray: inputs[i].indexOf("testcase5") !== -1
+    }
+
     // Act
-    const actual = markdownToJs.execute(structure, input, { cleanLists: true });
+    const actual = markdownToJs.execute(structure, input, options);
 
     // Assert
     expect(actual).toEqual(expected);

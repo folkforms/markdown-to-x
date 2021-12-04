@@ -15,14 +15,14 @@ const templates = require("../templates/templates");
  * @param {string} filename input filename
  * @return an array of strings containing the output data
  */
-const markdownToX = (input, structure, mappingsObj, templateData, filename) => {
+const markdownToX = (input, structure, mappingsObj, templateData, filename, options) => {
   const additionalData = {
     "@filename": filename,
     "@contents": input,
   };
-  const obj = markdownToJs.execute(structure, input);
-  const mapped = mappingsObj ? mappings.execute(obj, mappingsObj) : obj;
-  const templated = templates.execute(templateData, mapped, additionalData);
+  const obj = markdownToJs.execute(structure, input, options);
+  const mapped = mappingsObj ? mappings.execute(obj, mappingsObj, options) : obj;
+  const templated = templates.execute(templateData, mapped, additionalData, options);
   return templated;
 }
 

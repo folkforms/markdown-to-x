@@ -1,6 +1,11 @@
 let debug = false;
+let options = {
+  cleanLists: true,
+  debug: false
+};
 
-const execute = (structure, input, options = { cleanLists: true, debug: false }) => {
+const execute = (structure, input, userOptions) => {
+  options = { ...options, ...userOptions }
   debug = options.debug;
   if(debug) { console.log(`execute: (start)`); }
   if(debug) { console.log(`execute: structure = ${structure}`); }
@@ -85,7 +90,7 @@ const getBody = (input, heading) => {
 
   if(input.indexOf(heading) === -1) {
     if(debug) { console.log(`getBody: Heading '${heading}' not found in input '${input}'`); }
-    return null;
+    return [];
   }
 
   let startIndex = 0;
