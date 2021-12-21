@@ -8,11 +8,20 @@ const templates = require("../templates/templates");
  *
  * Note that the output is not necessarily JSON. It is in whatever format the template contained.
  *
+ * `options` (and their defaults):
+ * ```
+ * {
+ *   cleanLists: true // Removes bullet points '-' and '*' from lists when parsing
+ *   debug: false
+ * }
+ * ```
+ *
  * @param {array} input input data array
  * @param {array} structure structure file array
  * @param {object} mappingsObj mappings data object (optional)
  * @param {array} templateData template data array
  * @param {string} filename input filename
+ * @param {object} options object of supported options
  * @return an array of strings containing the output data
  */
 const markdownToX = (input, structure, mappingsObj, templateData, filename, options) => {
