@@ -46,13 +46,13 @@ const printHelpText = () => {
 
 if(process.argv.indexOf("-h") != -1 || process.argv.indexOf("--help") != -1) {
   printHelpText();
-  return 0;
+  process.exit(0);
 }
 
 const args = getArgs();
 const error = verifyArgs(args);
 if(error) {
-  return 1;
+  process.exit(1);
 }
 
 const inputFiles = glob.sync(args.input);
@@ -82,3 +82,5 @@ inputFiles.forEach(file => {
 Object.keys(output).forEach(file => {
   fileio.writeLines(file, output[file]);
 });
+
+process.exit(0);
